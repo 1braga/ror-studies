@@ -1,0 +1,16 @@
+<div id="<%= dom_id father %>">
+  <p>
+    <strong>Name:</strong>
+    <%= father.name %>
+    <hr>
+
+    <ul>
+      <% @father.children.each do |child| %>
+        <li><%= "#{child.name} - #{sexo(child.sex)}" %></li>
+      <% end %>
+    </ul>
+    
+
+  </p>
+
+</div>

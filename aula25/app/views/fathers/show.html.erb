@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @father %>
+
+<div>
+  <%= link_to "Edit this father", edit_father_path(@father) %> |
+  <%= link_to "Back to fathers", fathers_path %>
+
+  <%= button_to "Destroy this father", @father, method: :delete %>
+</div>
