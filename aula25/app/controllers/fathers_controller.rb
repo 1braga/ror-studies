@@ -1,9 +1,12 @@
 class FathersController < ApplicationController
   before_action :set_father, only: %i[ show edit update destroy ]
+  before_action :set_occupation, only: %i[ new create edit update ]
+
 
   # GET /fathers or /fathers.json
   def index
     @fathers = Father.all
+    @father = Father.first
   end
 
   # GET /fathers/1 or /fathers/1.json
@@ -65,6 +68,12 @@ class FathersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def father_params
-      params.expect(father: [ :name ])
+      params.expect(father: [ :name, :cpf, :email, :occupation_id ])
+    end
+
+    def set_occupation
+      @occupations = Occupation.all
     end
 end
+
+    

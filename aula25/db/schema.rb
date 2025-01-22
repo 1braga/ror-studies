@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_21_003157) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_22_002310) do
   create_table "children", force: :cascade do |t|
     t.string "name"
     t.string "sex"
@@ -24,7 +24,18 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_21_003157) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "cpf"
+    t.string "email"
+    t.integer "occupation_id"
+    t.index ["occupation_id"], name: "index_fathers_on_occupation_id"
+  end
+
+  create_table "occupations", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "children", "fathers"
+  add_foreign_key "fathers", "occupations"
 end
