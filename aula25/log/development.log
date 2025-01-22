@@ -5801,3 +5801,21 @@ puma (6.5.0) lib/puma/request.rb:98:in `handle_request'
 puma (6.5.0) lib/puma/server.rb:468:in `process_client'
 puma (6.5.0) lib/puma/server.rb:249:in `block in run'
 puma (6.5.0) lib/puma/thread_pool.rb:166:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2025-01-22 17:46:12 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Aula25'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/giovanna/.rvm/gems/ruby-3.3.3/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/giovanna/.rvm/gems/ruby-3.3.3/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.7ms | GC: 0.0ms)
+Completed 200 OK in 27ms (Views: 4.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2025-01-22 17:50:21 -0400
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | GC: 7.4ms)
+Completed 200 OK in 36ms (Views: 13.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 7.4ms)
+
+
+Started GET "/assets/application-8b441ae0.css" for 127.0.0.1 at 2025-01-22 17:50:21 -0400
