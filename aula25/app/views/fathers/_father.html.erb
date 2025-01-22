@@ -16,6 +16,14 @@
 
     <hr>
 
+    <strong>Avatar:</strong>
+    <% if father.avatar.attached? %>
+    <%= image_tag father.avatar.variant(:thumb) %>
+    <% else %>
+    <p>Sem avatar</p>
+    <% end %>
+
+    <hr>
     <ul>
       <% @father.children.each do |child| %>
         <li><%= "#{child.name} - #{sexo(child.sex)}" %></li>

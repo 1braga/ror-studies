@@ -68,7 +68,7 @@ class FathersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def father_params
-      params.expect(father: [ :name, :cpf, :email, :occupation_id ])
+      params.expect(father: [ :name, :cpf, :email, :occupation_id, :avatar ])
     end
 
     def set_occupation

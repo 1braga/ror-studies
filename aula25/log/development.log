@@ -4367,3 +4367,1437 @@ Processing by FathersController#update as HTML
 Completed 422 Unprocessable Content in 17ms (Views: 6.4ms | ActiveRecord: 1.4ms (3 queries, 0 cached) | GC: 0.5ms)
 
 
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Aula25'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Aula25'*/[0m
+Migrating to CreateActiveStorageTables (20250122013227)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Aula25'*/[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "service_name" varchar NOT NULL, "byte_size" bigint NOT NULL, "checksum" varchar, "created_at" datetime(6) NOT NULL) /*application='Aula25'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key") /*application='Aula25'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+) /*application='Aula25'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id") /*application='Aula25'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id") /*application='Aula25'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+) /*application='Aula25'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest") /*application='Aula25'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250122013227') RETURNING "version" /*application='Aula25'*/[0m
+  [1m[36mTRANSACTION (152.5ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Aula25'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Aula25'*/[0m
+Started GET "/fathers" for 127.0.0.1 at 2025-01-21 21:38:17 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Aula25'*/[0m
+Processing by FathersController#index as HTML
+  [1m[36mFather Load (1.5ms)[0m  [1m[34mSELECT "fathers".* FROM "fathers" ORDER BY "fathers"."id" ASC LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/controllers/fathers_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering fathers/index.html.erb within layouts/application
+  [1m[36mFather Load (0.1ms)[0m  [1m[34mSELECT "fathers".* FROM "fathers" /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/index.html.erb:8
+  [1m[36mOccupation Load (0.1ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 2 LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mChild Load (0.2ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."father_id" = 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  Rendered fathers/_father.html.erb (Duration: 14.0ms | GC: 5.3ms)
+  [1m[36mOccupation Load (0.1ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 1 LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  Rendered fathers/_father.html.erb (Duration: 1.1ms | GC: 0.0ms)
+  [1m[36mOccupation Load (0.1ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 3 LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  Rendered fathers/_father.html.erb (Duration: 0.9ms | GC: 0.0ms)
+  [1m[36mCACHE Occupation Load (0.0ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 3 LIMIT 1[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  Rendered fathers/_father.html.erb (Duration: 1.6ms | GC: 0.7ms)
+  [1m[36mCACHE Occupation Load (0.0ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 2 LIMIT 1[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  Rendered fathers/_father.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered fathers/index.html.erb within layouts/application (Duration: 21.6ms | GC: 6.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 22.4ms | GC: 6.0ms)
+Completed 200 OK in 770ms (Views: 22.8ms | ActiveRecord: 2.0ms (8 queries, 2 cached) | GC: 6.0ms)
+
+
+Started GET "/fathers/new" for 127.0.0.1 at 2025-01-21 21:38:22 -0400
+Processing by FathersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering fathers/new.html.erb within layouts/application
+  [1m[36mOccupation Load (0.2ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" /*action='new',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_form.html.erb:31
+  Rendered fathers/_form.html.erb (Duration: 43.3ms | GC: 0.5ms)
+  Rendered fathers/new.html.erb within layouts/application (Duration: 44.2ms | GC: 0.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 45.1ms | GC: 0.5ms)
+Completed 200 OK in 54ms (Views: 45.3ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/fathers/new" for 127.0.0.1 at 2025-01-21 21:38:37 -0400
+Processing by FathersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering fathers/new.html.erb within layouts/application
+  [1m[36mOccupation Load (0.1ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" /*action='new',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_form.html.erb:31
+  Rendered fathers/_form.html.erb (Duration: 5.3ms | GC: 0.0ms)
+  Rendered fathers/new.html.erb within layouts/application (Duration: 6.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | GC: 0.0ms)
+Completed 200 OK in 23ms (Views: 7.9ms | ActiveRecord: 1.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/fathers/new" for 127.0.0.1 at 2025-01-21 21:39:46 -0400
+Processing by FathersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering fathers/new.html.erb within layouts/application
+  [1m[36mOccupation Load (0.1ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" /*action='new',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_form.html.erb:31
+  Rendered fathers/_form.html.erb (Duration: 5.2ms | GC: 0.0ms)
+  Rendered fathers/new.html.erb within layouts/application (Duration: 5.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | GC: 0.0ms)
+Completed 200 OK in 23ms (Views: 7.4ms | ActiveRecord: 1.2ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/fathers/new" for 127.0.0.1 at 2025-01-21 21:39:57 -0400
+Processing by FathersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering fathers/new.html.erb within layouts/application
+  [1m[36mOccupation Load (0.2ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" /*action='new',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_form.html.erb:31
+  Rendered fathers/_form.html.erb (Duration: 7.5ms | GC: 0.0ms)
+  Rendered fathers/new.html.erb within layouts/application (Duration: 8.8ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | GC: 0.3ms)
+Completed 200 OK in 27ms (Views: 10.0ms | ActiveRecord: 1.6ms (1 query, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/fathers/new" for 127.0.0.1 at 2025-01-21 21:40:23 -0400
+Processing by FathersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering fathers/new.html.erb within layouts/application
+  [1m[36mOccupation Load (0.1ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" /*action='new',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_form.html.erb:31
+  Rendered fathers/_form.html.erb (Duration: 6.9ms | GC: 0.2ms)
+  Rendered fathers/new.html.erb within layouts/application (Duration: 7.6ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | GC: 0.2ms)
+Completed 200 OK in 29ms (Views: 10.1ms | ActiveRecord: 2.2ms (1 query, 0 cached) | GC: 0.9ms)
+
+
+Started GET "/fathers/new" for 127.0.0.1 at 2025-01-21 21:40:31 -0400
+Processing by FathersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering fathers/new.html.erb within layouts/application
+  [1m[36mOccupation Load (0.1ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" /*action='new',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_form.html.erb:31
+  Rendered fathers/_form.html.erb (Duration: 6.2ms | GC: 0.9ms)
+  Rendered fathers/new.html.erb within layouts/application (Duration: 6.9ms | GC: 0.9ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | GC: 0.9ms)
+Completed 200 OK in 34ms (Views: 8.7ms | ActiveRecord: 5.5ms (1 query, 0 cached) | GC: 5.3ms)
+
+
+Started POST "/fathers" for 127.0.0.1 at 2025-01-21 21:41:33 -0400
+Processing by FathersController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "father"=>{"name"=>"shadow", "cpf"=>"384674263276", "email"=>"[FILTERED]", "occupation_id"=>"2", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x00007fc05cc49f18 @tempfile=#<Tempfile:/tmp/RackMultipart20250121-6186-157ivs.jpg>, @content_type="image/jpeg", @original_filename="01_2406211552506937_20240621155300-650x650.jpg", @headers="Content-Disposition: form-data; name=\"father[avatar]\"; filename=\"01_2406211552506937_20240621155300-650x650.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Create Father"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Aula25',controller='fathers'*/[0m
+  ↳ app/controllers/fathers_controller.rb:30:in `block in create'
+  [1m[36mOccupation Load (1.1ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 2 LIMIT 1 /*action='create',application='Aula25',controller='fathers'*/[0m
+  ↳ app/controllers/fathers_controller.rb:30:in `block in create'
+  [1m[36mFather Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "fathers" WHERE "fathers"."email" = 'xedouourico@hotmail.com' LIMIT 1 /*action='create',application='Aula25',controller='fathers'*/[0m
+  ↳ app/controllers/fathers_controller.rb:30:in `block in create'
+  [1m[36mFather Create (0.1ms)[0m  [1m[32mINSERT INTO "fathers" ("name", "created_at", "updated_at", "cpf", "email", "occupation_id") VALUES ('shadow', '2025-01-22 01:41:33.433323', '2025-01-22 01:41:33.433323', '384674263276', 'xedouourico@hotmail.com', 2) RETURNING "id" /*action='create',application='Aula25',controller='fathers'*/[0m
+  ↳ app/controllers/fathers_controller.rb:30:in `block in create'
+  [1m[36mTRANSACTION (224.6ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Aula25',controller='fathers'*/[0m
+  ↳ app/controllers/fathers_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/fathers/6
+Completed 302 Found in 242ms (ActiveRecord: 225.9ms (3 queries, 0 cached) | GC: 1.0ms)
+
+
+Started GET "/fathers/6" for 127.0.0.1 at 2025-01-21 21:41:33 -0400
+Processing by FathersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mFather Load (0.1ms)[0m  [1m[34mSELECT "fathers".* FROM "fathers" WHERE "fathers"."id" = 6 LIMIT 1 /*action='show',application='Aula25',controller='fathers'*/[0m
+  ↳ app/controllers/fathers_controller.rb:66:in `set_father'
+  Rendering layout layouts/application.html.erb
+  Rendering fathers/show.html.erb within layouts/application
+  [1m[36mOccupation Load (0.2ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 2 LIMIT 1 /*action='show',application='Aula25',controller='fathers'*/[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mChild Load (0.1ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."father_id" = 6 /*action='show',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  Rendered fathers/_father.html.erb (Duration: 23.5ms | GC: 11.9ms)
+  Rendered fathers/show.html.erb within layouts/application (Duration: 26.5ms | GC: 12.9ms)
+  Rendered layout layouts/application.html.erb (Duration: 27.3ms | GC: 12.9ms)
+Completed 200 OK in 37ms (Views: 26.5ms | ActiveRecord: 1.4ms (3 queries, 0 cached) | GC: 12.9ms)
+
+
+Started GET "/fathers" for 127.0.0.1 at 2025-01-21 21:57:17 -0400
+Processing by FathersController#index as HTML
+  [1m[36mFather Load (1.1ms)[0m  [1m[34mSELECT "fathers".* FROM "fathers" ORDER BY "fathers"."id" ASC LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/controllers/fathers_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering fathers/index.html.erb within layouts/application
+  [1m[36mFather Load (0.1ms)[0m  [1m[34mSELECT "fathers".* FROM "fathers" /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/index.html.erb:8
+  [1m[36mOccupation Load (0.1ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 2 LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 1 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  Rendered fathers/_father.html.erb (Duration: 207.9ms | GC: 1.5ms)
+  Rendered fathers/index.html.erb within layouts/application (Duration: 210.8ms | GC: 1.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 211.2ms | GC: 1.7ms)
+Completed 500 Internal Server Error in 260ms (ActiveRecord: 2.0ms (4 queries, 0 cached) | GC: 2.4ms)
+
+
+  
+ActionView::Template::Error (Nil location provided. Can't build URI.)
+Caused by: ArgumentError (Nil location provided. Can't build URI.)
+
+Information for: ActionView::Template::Error (Nil location provided. Can't build URI.):
+    17:     <hr>
+    18: 
+    19:     <strong>Avatar:</strong>
+    20:     <%= image_tag father.avatar.preview(:thumb) %>
+    21: 
+    22:     <hr>
+    23:     <ul>
+  
+app/views/fathers/_father.html.erb:20
+app/views/fathers/index.html.erb:9
+app/views/fathers/index.html.erb:8
+
+Information for cause: ArgumentError (Nil location provided. Can't build URI.):
+  
+app/views/fathers/_father.html.erb:20
+app/views/fathers/index.html.erb:9
+app/views/fathers/index.html.erb:8
+Started GET "/favicon.ico" for 127.0.0.1 at 2025-01-21 21:57:19 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/fathers" for 127.0.0.1 at 2025-01-21 21:57:49 -0400
+Processing by FathersController#index as HTML
+  [1m[36mFather Load (0.1ms)[0m  [1m[34mSELECT "fathers".* FROM "fathers" ORDER BY "fathers"."id" ASC LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/controllers/fathers_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering fathers/index.html.erb within layouts/application
+  [1m[36mFather Load (0.2ms)[0m  [1m[34mSELECT "fathers".* FROM "fathers" /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/index.html.erb:8
+  [1m[36mOccupation Load (0.1ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 2 LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 1 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  Rendered fathers/_father.html.erb (Duration: 10.5ms | GC: 0.7ms)
+  Rendered fathers/index.html.erb within layouts/application (Duration: 14.7ms | GC: 0.9ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | GC: 0.9ms)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 1.8ms (4 queries, 0 cached) | GC: 1.4ms)
+
+
+  
+ActionView::Template::Error (Nil location provided. Can't build URI.)
+Caused by: ArgumentError (Nil location provided. Can't build URI.)
+
+Information for: ActionView::Template::Error (Nil location provided. Can't build URI.):
+    17:     <hr>
+    18: 
+    19:     <strong>Avatar:</strong>
+    20:     <%= image_tag father.avatar.variant(:thumb) %>
+    21: 
+    22:     <hr>
+    23:     <ul>
+  
+app/views/fathers/_father.html.erb:20
+app/views/fathers/index.html.erb:9
+app/views/fathers/index.html.erb:8
+
+Information for cause: ArgumentError (Nil location provided. Can't build URI.):
+  
+app/views/fathers/_father.html.erb:20
+app/views/fathers/index.html.erb:9
+app/views/fathers/index.html.erb:8
+Started GET "/fathers" for 127.0.0.1 at 2025-01-21 22:00:01 -0400
+Processing by FathersController#index as HTML
+  [1m[36mFather Load (0.1ms)[0m  [1m[34mSELECT "fathers".* FROM "fathers" ORDER BY "fathers"."id" ASC LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/controllers/fathers_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering fathers/index.html.erb within layouts/application
+  [1m[36mFather Load (0.1ms)[0m  [1m[34mSELECT "fathers".* FROM "fathers" /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/index.html.erb:8
+  [1m[36mOccupation Load (0.1ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 2 LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 1 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  [1m[36mChild Load (0.1ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."father_id" = 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:28
+  Rendered fathers/_father.html.erb (Duration: 16.1ms | GC: 0.0ms)
+  [1m[36mOccupation Load (0.1ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 1 LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  Rendered fathers/_father.html.erb (Duration: 2.2ms | GC: 0.0ms)
+  [1m[36mOccupation Load (0.1ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 3 LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  Rendered fathers/_father.html.erb (Duration: 1.7ms | GC: 0.0ms)
+  [1m[36mCACHE Occupation Load (0.0ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 3 LIMIT 1[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 4 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  Rendered fathers/_father.html.erb (Duration: 1.6ms | GC: 0.0ms)
+  [1m[36mCACHE Occupation Load (0.0ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 2 LIMIT 1[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 5 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  Rendered fathers/_father.html.erb (Duration: 2.0ms | GC: 0.0ms)
+  [1m[36mCACHE Occupation Load (0.0ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 2 LIMIT 1[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 6 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  Rendered fathers/_father.html.erb (Duration: 2.6ms | GC: 0.0ms)
+  Rendered fathers/index.html.erb within layouts/application (Duration: 29.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 30.4ms | GC: 0.0ms)
+Completed 200 OK in 47ms (Views: 29.4ms | ActiveRecord: 2.8ms (15 queries, 3 cached) | GC: 0.0ms)
+
+
+Started GET "/fathers/6" for 127.0.0.1 at 2025-01-21 22:00:52 -0400
+Processing by FathersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mFather Load (0.1ms)[0m  [1m[34mSELECT "fathers".* FROM "fathers" WHERE "fathers"."id" = 6 LIMIT 1 /*action='show',application='Aula25',controller='fathers'*/[0m
+  ↳ app/controllers/fathers_controller.rb:66:in `set_father'
+  Rendering layout layouts/application.html.erb
+  Rendering fathers/show.html.erb within layouts/application
+  [1m[36mOccupation Load (0.3ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 2 LIMIT 1 /*action='show',application='Aula25',controller='fathers'*/[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 6 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='show',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  [1m[36mChild Load (0.1ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."father_id" = 6 /*action='show',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:28
+  Rendered fathers/_father.html.erb (Duration: 4.7ms | GC: 0.0ms)
+  Rendered fathers/show.html.erb within layouts/application (Duration: 6.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | GC: 0.0ms)
+Completed 200 OK in 16ms (Views: 7.1ms | ActiveRecord: 0.5ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/fathers/6/edit" for 127.0.0.1 at 2025-01-21 22:00:54 -0400
+Processing by FathersController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mFather Load (0.1ms)[0m  [1m[34mSELECT "fathers".* FROM "fathers" WHERE "fathers"."id" = 6 LIMIT 1 /*action='edit',application='Aula25',controller='fathers'*/[0m
+  ↳ app/controllers/fathers_controller.rb:66:in `set_father'
+  Rendering layout layouts/application.html.erb
+  Rendering fathers/edit.html.erb within layouts/application
+  [1m[36mOccupation Load (0.1ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" /*action='edit',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_form.html.erb:31
+  Rendered fathers/_form.html.erb (Duration: 2.7ms | GC: 0.0ms)
+  Rendered fathers/edit.html.erb within layouts/application (Duration: 3.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | GC: 0.0ms)
+Completed 200 OK in 11ms (Views: 4.2ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/fathers/6" for 127.0.0.1 at 2025-01-21 22:00:59 -0400
+Processing by FathersController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "father"=>{"name"=>"shadow", "cpf"=>"384674263276", "email"=>"[FILTERED]", "occupation_id"=>"2", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x00007fc05c097b20 @tempfile=#<Tempfile:/tmp/RackMultipart20250121-6186-pz77mk.jpg>, @content_type="image/jpeg", @original_filename="01_2406211552506937_20240621155300-650x650.jpg", @headers="Content-Disposition: form-data; name=\"father[avatar]\"; filename=\"01_2406211552506937_20240621155300-650x650.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "commit"=>"Update Father", "id"=>"6"}
+  [1m[36mFather Load (0.1ms)[0m  [1m[34mSELECT "fathers".* FROM "fathers" WHERE "fathers"."id" = 6 LIMIT 1 /*action='update',application='Aula25',controller='fathers'*/[0m
+  ↳ app/controllers/fathers_controller.rb:66:in `set_father'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='Aula25',controller='fathers'*/[0m
+  ↳ app/controllers/fathers_controller.rb:43:in `block in update'
+  [1m[36mFather Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "fathers" WHERE "fathers"."email" = 'xedouourico@hotmail.com' AND "fathers"."id" != 6 LIMIT 1 /*action='update',application='Aula25',controller='fathers'*/[0m
+  ↳ app/controllers/fathers_controller.rb:43:in `block in update'
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = 6 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='update',application='Aula25',controller='fathers'*/[0m
+  ↳ app/controllers/fathers_controller.rb:43:in `block in update'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 6 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='update',application='Aula25',controller='fathers'*/[0m
+  ↳ app/controllers/fathers_controller.rb:43:in `block in update'
+  [1m[36mActiveStorage::Blob Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ('t2amyikk57zqubynvhsob8ryvvpu', '01_2406211552506937_20240621155300-650x650.jpg', 'image/jpeg', '{"identified":true}', 'local', 39962, 'ITCINjbSSoIwRI3fKU4evQ==', '2025-01-22 02:00:59.922727') RETURNING "id" /*action='update',application='Aula25',controller='fathers'*/[0m
+  ↳ app/controllers/fathers_controller.rb:43:in `block in update'
+  [1m[36mActiveStorage::Attachment Create (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ('avatar', 'Father', 6, 1, '2025-01-22 02:00:59.924688') RETURNING "id" /*action='update',application='Aula25',controller='fathers'*/[0m
+  ↳ app/controllers/fathers_controller.rb:43:in `block in update'
+  [1m[36mFather Update (0.1ms)[0m  [1m[33mUPDATE "fathers" SET "updated_at" = '2025-01-22 02:00:59.926271' WHERE "fathers"."id" = 6 /*action='update',application='Aula25',controller='fathers'*/[0m
+  ↳ app/controllers/fathers_controller.rb:43:in `block in update'
+  [1m[36mTRANSACTION (135.7ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update',application='Aula25',controller='fathers'*/[0m
+  ↳ app/controllers/fathers_controller.rb:43:in `block in update'
+[36m  Disk Storage (0.7ms) [0m[32mUploaded file to key: t2amyikk57zqubynvhsob8ryvvpu (checksum: ITCINjbSSoIwRI3fKU4evQ==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: fbf03087-5e3d-4287-8f39-6bc383649978) to Async(default) with arguments: #<GlobalID:0x00007fc05cafd0d8 @uri=#<URI::GID gid://aula25/ActiveStorage::Blob/1>>
+[ActiveJob] ↳ app/controllers/fathers_controller.rb:43:in `block in update'
+Redirected to http://localhost:3000/fathers/6
+Completed 302 Found in 746ms (ActiveRecord: 139.4ms (7 queries, 0 cached) | GC: 11.2ms)
+
+
+Started GET "/fathers/6" for 127.0.0.1 at 2025-01-21 22:01:00 -0400
+[ActiveJob] [ActiveStorage::AnalyzeJob] [fbf03087-5e3d-4287-8f39-6bc383649978]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*application='Aula25'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [fbf03087-5e3d-4287-8f39-6bc383649978] Performing ActiveStorage::AnalyzeJob (Job ID: fbf03087-5e3d-4287-8f39-6bc383649978) from Async(default) enqueued at 2025-01-22T02:01:00.278029860Z with arguments: #<GlobalID:0x00007fc05ca9ebc8 @uri=#<URI::GID gid://aula25/ActiveStorage::Blob/1>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [fbf03087-5e3d-4287-8f39-6bc383649978] Skipping image analysis because the ruby-vips gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [fbf03087-5e3d-4287-8f39-6bc383649978]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Aula25',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [fbf03087-5e3d-4287-8f39-6bc383649978]   [1m[36mActiveStorage::Blob Update (2.6ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = '{"identified":true,"analyzed":true}' WHERE "active_storage_blobs"."id" = 1 /*application='Aula25',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [fbf03087-5e3d-4287-8f39-6bc383649978]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = 1 /*application='Aula25',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [fbf03087-5e3d-4287-8f39-6bc383649978]   [1m[36mFather Load (0.1ms)[0m  [1m[34mSELECT "fathers".* FROM "fathers" WHERE "fathers"."id" = 6 /*application='Aula25',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [fbf03087-5e3d-4287-8f39-6bc383649978]   [1m[36mFather Update (0.1ms)[0m  [1m[33mUPDATE "fathers" SET "updated_at" = '2025-01-22 02:01:00.893778' WHERE "fathers"."id" = 6 /*application='Aula25',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [fbf03087-5e3d-4287-8f39-6bc383649978]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Aula25',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [fbf03087-5e3d-4287-8f39-6bc383649978] Performed ActiveStorage::AnalyzeJob (Job ID: fbf03087-5e3d-4287-8f39-6bc383649978) from Async(default) in 610.91ms
+Processing by FathersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mFather Load (0.1ms)[0m  [1m[34mSELECT "fathers".* FROM "fathers" WHERE "fathers"."id" = 6 LIMIT 1 /*action='show',application='Aula25',controller='fathers'*/[0m
+  ↳ app/controllers/fathers_controller.rb:66:in `set_father'
+  Rendering layout layouts/application.html.erb
+  Rendering fathers/show.html.erb within layouts/application
+  [1m[36mOccupation Load (0.1ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 2 LIMIT 1 /*action='show',application='Aula25',controller='fathers'*/[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 6 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='show',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='show',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:21
+  [1m[36mChild Load (0.2ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."father_id" = 6 /*action='show',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:28
+  Rendered fathers/_father.html.erb (Duration: 31.1ms | GC: 0.5ms)
+  Rendered fathers/show.html.erb within layouts/application (Duration: 32.1ms | GC: 0.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 32.7ms | GC: 0.5ms)
+Completed 200 OK in 38ms (Views: 32.6ms | ActiveRecord: 0.5ms (5 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--e3577b88028241aeb3bf9f8beec18fb73a642ac4/eyJfcmFpbHMiOnsiZGF0YSI6eyJmb3JtYXQiOiJqcGciLCJyZXNpemVfdG9fbGltaXQiOlsxMDAsMTAwXX0sInB1ciI6InZhcmlhdGlvbiJ9fQ==--319fee19563ee369a82f8a3a28defadb4f5f0b13/01_2406211552506937_20240621155300-650x650.jpg" for 127.0.0.1 at 2025-01-21 22:01:00 -0400
+Processing by ActiveStorage::Representations::RedirectController#show as JPEG
+  Parameters: {"signed_blob_id"=>"eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--e3577b88028241aeb3bf9f8beec18fb73a642ac4", "variation_key"=>"[FILTERED]", "filename"=>"01_2406211552506937_20240621155300-650x650"}
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='show',application='Aula25',controller='redirect'*/[0m
+  [1m[36mActiveStorage::VariantRecord Load (0.1ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = 1 AND "active_storage_variant_records"."variation_digest" = '58nLvjR5lLpeOdoWw8+s844W40I=' LIMIT 1 /*action='show',application='Aula25',controller='redirect'*/[0m
+[36m  Disk Storage (0.1ms) [0m[34mDownloaded file from key: t2amyikk57zqubynvhsob8ryvvpu[0m
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.5ms)
+
+
+  
+LoadError (Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile.)
+Caused by: LoadError (cannot load such file -- image_processing)
+
+Information for: LoadError (Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile.):
+  
+activestorage (8.0.1) lib/active_storage/transformers/image_processing_transformer.rb:6:in `rescue in <main>'
+activestorage (8.0.1) lib/active_storage/transformers/image_processing_transformer.rb:3:in `<main>'
+/home/braga/.rvm/rubies/ruby-3.3.3/lib/ruby/3.3.0/bundled_gems.rb:74:in `require'
+/home/braga/.rvm/rubies/ruby-3.3.3/lib/ruby/3.3.0/bundled_gems.rb:74:in `block (2 levels) in replace_require'
+bootsnap (1.18.4) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:30:in `require'
+zeitwerk (2.7.1) lib/zeitwerk/core_ext/kernel.rb:34:in `require'
+activestorage (8.0.1) app/models/active_storage/variation.rb:85:in `transformer'
+activestorage (8.0.1) app/models/active_storage/variation.rb:58:in `block in transform'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (8.0.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `instrument'
+activestorage (8.0.1) app/models/active_storage/variation.rb:57:in `transform'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:49:in `block in transform_blob'
+activestorage (8.0.1) lib/active_storage/downloader.rb:15:in `block in open'
+activestorage (8.0.1) lib/active_storage/downloader.rb:24:in `open_tempfile'
+activestorage (8.0.1) lib/active_storage/downloader.rb:12:in `open'
+activestorage (8.0.1) lib/active_storage/service.rb:92:in `open'
+activestorage (8.0.1) app/models/active_storage/blob.rb:305:in `open'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:48:in `transform_blob'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:44:in `process'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:19:in `processed'
+activestorage (8.0.1) app/controllers/active_storage/representations/base_controller.rb:14:in `set_representation'
+activesupport (8.0.1) lib/active_support/callbacks.rb:361:in `block in make_lambda'
+activesupport (8.0.1) lib/active_support/callbacks.rb:178:in `block in call'
+actionpack (8.0.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (8.0.1) lib/active_support/callbacks.rb:179:in `call'
+activesupport (8.0.1) lib/active_support/callbacks.rb:558:in `block in invoke_before'
+activesupport (8.0.1) lib/active_support/callbacks.rb:558:in `each'
+activesupport (8.0.1) lib/active_support/callbacks.rb:558:in `invoke_before'
+activesupport (8.0.1) lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+turbo-rails (2.0.11) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.11) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `block in run_callbacks'
+actiontext (8.0.1) lib/action_text/rendering.rb:25:in `with_renderer'
+actiontext (8.0.1) lib/action_text/engine.rb:71:in `block (4 levels) in <class:Engine>'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `instance_exec'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `block in run_callbacks'
+activesupport (8.0.1) lib/active_support/callbacks.rb:140:in `run_callbacks'
+actionpack (8.0.1) lib/abstract_controller/callbacks.rb:260:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/rescue.rb:27:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/instrumentation.rb:76:in `block in process_action'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (8.0.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `instrument'
+actionpack (8.0.1) lib/action_controller/metal/instrumentation.rb:75:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (8.0.1) lib/active_record/railties/controller_runtime.rb:39:in `process_action'
+actionpack (8.0.1) lib/abstract_controller/base.rb:163:in `process'
+actionview (8.0.1) lib/action_view/rendering.rb:40:in `process'
+actionpack (8.0.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (8.0.1) lib/action_controller/metal.rb:335:in `dispatch'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:67:in `dispatch'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.1) lib/rails/engine/lazy_route_set.rb:68:in `call'
+rack (3.1.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.1.8) lib/rack/etag.rb:29:in `call'
+rack (3.1.8) lib/rack/conditional_get.rb:31:in `call'
+rack (3.1.8) lib/rack/head.rb:15:in `call'
+actionpack (8.0.1) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (8.0.1) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.1.0) lib/rack/session/abstract/id.rb:274:in `context'
+rack-session (2.1.0) lib/rack/session/abstract/id.rb:268:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/cookies.rb:706:in `call'
+activerecord (8.0.1) lib/active_record/migration.rb:671:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.1) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.1.8) lib/rack/method_override.rb:28:in `call'
+rack (3.1.8) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.1.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.0.1) lib/rails/engine.rb:535:in `call'
+puma (6.5.0) lib/puma/configuration.rb:279:in `call'
+puma (6.5.0) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.5.0) lib/puma/thread_pool.rb:389:in `with_force_shutdown'
+puma (6.5.0) lib/puma/request.rb:98:in `handle_request'
+puma (6.5.0) lib/puma/server.rb:468:in `process_client'
+puma (6.5.0) lib/puma/server.rb:249:in `block in run'
+puma (6.5.0) lib/puma/thread_pool.rb:166:in `block in spawn_thread'
+
+Information for cause: LoadError (cannot load such file -- image_processing):
+  
+/home/braga/.rvm/rubies/ruby-3.3.3/lib/ruby/3.3.0/bundled_gems.rb:74:in `require'
+/home/braga/.rvm/rubies/ruby-3.3.3/lib/ruby/3.3.0/bundled_gems.rb:74:in `block (2 levels) in replace_require'
+bootsnap (1.18.4) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:17:in `require'
+zeitwerk (2.7.1) lib/zeitwerk/core_ext/kernel.rb:34:in `require'
+activestorage (8.0.1) lib/active_storage/transformers/image_processing_transformer.rb:4:in `<main>'
+/home/braga/.rvm/rubies/ruby-3.3.3/lib/ruby/3.3.0/bundled_gems.rb:74:in `require'
+/home/braga/.rvm/rubies/ruby-3.3.3/lib/ruby/3.3.0/bundled_gems.rb:74:in `block (2 levels) in replace_require'
+bootsnap (1.18.4) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:30:in `require'
+zeitwerk (2.7.1) lib/zeitwerk/core_ext/kernel.rb:34:in `require'
+activestorage (8.0.1) app/models/active_storage/variation.rb:85:in `transformer'
+activestorage (8.0.1) app/models/active_storage/variation.rb:58:in `block in transform'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (8.0.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `instrument'
+activestorage (8.0.1) app/models/active_storage/variation.rb:57:in `transform'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:49:in `block in transform_blob'
+activestorage (8.0.1) lib/active_storage/downloader.rb:15:in `block in open'
+activestorage (8.0.1) lib/active_storage/downloader.rb:24:in `open_tempfile'
+activestorage (8.0.1) lib/active_storage/downloader.rb:12:in `open'
+activestorage (8.0.1) lib/active_storage/service.rb:92:in `open'
+activestorage (8.0.1) app/models/active_storage/blob.rb:305:in `open'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:48:in `transform_blob'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:44:in `process'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:19:in `processed'
+activestorage (8.0.1) app/controllers/active_storage/representations/base_controller.rb:14:in `set_representation'
+activesupport (8.0.1) lib/active_support/callbacks.rb:361:in `block in make_lambda'
+activesupport (8.0.1) lib/active_support/callbacks.rb:178:in `block in call'
+actionpack (8.0.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (8.0.1) lib/active_support/callbacks.rb:179:in `call'
+activesupport (8.0.1) lib/active_support/callbacks.rb:558:in `block in invoke_before'
+activesupport (8.0.1) lib/active_support/callbacks.rb:558:in `each'
+activesupport (8.0.1) lib/active_support/callbacks.rb:558:in `invoke_before'
+activesupport (8.0.1) lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+turbo-rails (2.0.11) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.11) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `block in run_callbacks'
+actiontext (8.0.1) lib/action_text/rendering.rb:25:in `with_renderer'
+actiontext (8.0.1) lib/action_text/engine.rb:71:in `block (4 levels) in <class:Engine>'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `instance_exec'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `block in run_callbacks'
+activesupport (8.0.1) lib/active_support/callbacks.rb:140:in `run_callbacks'
+actionpack (8.0.1) lib/abstract_controller/callbacks.rb:260:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/rescue.rb:27:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/instrumentation.rb:76:in `block in process_action'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (8.0.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `instrument'
+actionpack (8.0.1) lib/action_controller/metal/instrumentation.rb:75:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (8.0.1) lib/active_record/railties/controller_runtime.rb:39:in `process_action'
+actionpack (8.0.1) lib/abstract_controller/base.rb:163:in `process'
+actionview (8.0.1) lib/action_view/rendering.rb:40:in `process'
+actionpack (8.0.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (8.0.1) lib/action_controller/metal.rb:335:in `dispatch'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:67:in `dispatch'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.1) lib/rails/engine/lazy_route_set.rb:68:in `call'
+rack (3.1.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.1.8) lib/rack/etag.rb:29:in `call'
+rack (3.1.8) lib/rack/conditional_get.rb:31:in `call'
+rack (3.1.8) lib/rack/head.rb:15:in `call'
+actionpack (8.0.1) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (8.0.1) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.1.0) lib/rack/session/abstract/id.rb:274:in `context'
+rack-session (2.1.0) lib/rack/session/abstract/id.rb:268:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/cookies.rb:706:in `call'
+activerecord (8.0.1) lib/active_record/migration.rb:671:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.1) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.1.8) lib/rack/method_override.rb:28:in `call'
+rack (3.1.8) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.1.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.0.1) lib/rails/engine.rb:535:in `call'
+puma (6.5.0) lib/puma/configuration.rb:279:in `call'
+puma (6.5.0) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.5.0) lib/puma/thread_pool.rb:389:in `with_force_shutdown'
+puma (6.5.0) lib/puma/request.rb:98:in `handle_request'
+puma (6.5.0) lib/puma/server.rb:468:in `process_client'
+puma (6.5.0) lib/puma/server.rb:249:in `block in run'
+puma (6.5.0) lib/puma/thread_pool.rb:166:in `block in spawn_thread'
+Started GET "/fathers" for 127.0.0.1 at 2025-01-21 22:01:05 -0400
+Processing by FathersController#index as HTML
+  [1m[36mFather Load (0.1ms)[0m  [1m[34mSELECT "fathers".* FROM "fathers" ORDER BY "fathers"."id" ASC LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/controllers/fathers_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering fathers/index.html.erb within layouts/application
+  [1m[36mFather Load (0.1ms)[0m  [1m[34mSELECT "fathers".* FROM "fathers" /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/index.html.erb:8
+  [1m[36mOccupation Load (0.1ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 2 LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 1 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  [1m[36mChild Load (0.1ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."father_id" = 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:28
+  Rendered fathers/_father.html.erb (Duration: 3.1ms | GC: 0.0ms)
+  [1m[36mOccupation Load (0.1ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 1 LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  Rendered fathers/_father.html.erb (Duration: 1.8ms | GC: 0.0ms)
+  [1m[36mOccupation Load (0.1ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 3 LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  Rendered fathers/_father.html.erb (Duration: 2.6ms | GC: 0.0ms)
+  [1m[36mCACHE Occupation Load (0.1ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 3 LIMIT 1[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 4 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  Rendered fathers/_father.html.erb (Duration: 4.2ms | GC: 0.0ms)
+  [1m[36mCACHE Occupation Load (0.0ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 2 LIMIT 1[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 5 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  Rendered fathers/_father.html.erb (Duration: 2.0ms | GC: 0.0ms)
+  [1m[36mCACHE Occupation Load (0.0ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 2 LIMIT 1[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 6 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:21
+  Rendered fathers/_father.html.erb (Duration: 3.6ms | GC: 0.0ms)
+  Rendered fathers/index.html.erb within layouts/application (Duration: 20.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 20.4ms | GC: 0.0ms)
+Completed 200 OK in 31ms (Views: 19.6ms | ActiveRecord: 1.2ms (16 queries, 3 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--e3577b88028241aeb3bf9f8beec18fb73a642ac4/eyJfcmFpbHMiOnsiZGF0YSI6eyJmb3JtYXQiOiJqcGciLCJyZXNpemVfdG9fbGltaXQiOlsxMDAsMTAwXX0sInB1ciI6InZhcmlhdGlvbiJ9fQ==--319fee19563ee369a82f8a3a28defadb4f5f0b13/01_2406211552506937_20240621155300-650x650.jpg" for 127.0.0.1 at 2025-01-21 22:01:05 -0400
+Processing by ActiveStorage::Representations::RedirectController#show as JPEG
+  Parameters: {"signed_blob_id"=>"eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--e3577b88028241aeb3bf9f8beec18fb73a642ac4", "variation_key"=>"[FILTERED]", "filename"=>"01_2406211552506937_20240621155300-650x650"}
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='show',application='Aula25',controller='redirect'*/[0m
+  [1m[36mActiveStorage::VariantRecord Load (0.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = 1 AND "active_storage_variant_records"."variation_digest" = '58nLvjR5lLpeOdoWw8+s844W40I=' LIMIT 1 /*action='show',application='Aula25',controller='redirect'*/[0m
+[36m  Disk Storage (0.3ms) [0m[34mDownloaded file from key: t2amyikk57zqubynvhsob8ryvvpu[0m
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+LoadError (Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile.)
+Caused by: LoadError (cannot load such file -- image_processing)
+
+Information for: LoadError (Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile.):
+  
+activestorage (8.0.1) lib/active_storage/transformers/image_processing_transformer.rb:6:in `rescue in <main>'
+activestorage (8.0.1) lib/active_storage/transformers/image_processing_transformer.rb:3:in `<main>'
+/home/braga/.rvm/rubies/ruby-3.3.3/lib/ruby/3.3.0/bundled_gems.rb:74:in `require'
+/home/braga/.rvm/rubies/ruby-3.3.3/lib/ruby/3.3.0/bundled_gems.rb:74:in `block (2 levels) in replace_require'
+bootsnap (1.18.4) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:30:in `require'
+zeitwerk (2.7.1) lib/zeitwerk/core_ext/kernel.rb:34:in `require'
+activestorage (8.0.1) app/models/active_storage/variation.rb:85:in `transformer'
+activestorage (8.0.1) app/models/active_storage/variation.rb:58:in `block in transform'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (8.0.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `instrument'
+activestorage (8.0.1) app/models/active_storage/variation.rb:57:in `transform'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:49:in `block in transform_blob'
+activestorage (8.0.1) lib/active_storage/downloader.rb:15:in `block in open'
+activestorage (8.0.1) lib/active_storage/downloader.rb:24:in `open_tempfile'
+activestorage (8.0.1) lib/active_storage/downloader.rb:12:in `open'
+activestorage (8.0.1) lib/active_storage/service.rb:92:in `open'
+activestorage (8.0.1) app/models/active_storage/blob.rb:305:in `open'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:48:in `transform_blob'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:44:in `process'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:19:in `processed'
+activestorage (8.0.1) app/controllers/active_storage/representations/base_controller.rb:14:in `set_representation'
+activesupport (8.0.1) lib/active_support/callbacks.rb:361:in `block in make_lambda'
+activesupport (8.0.1) lib/active_support/callbacks.rb:178:in `block in call'
+actionpack (8.0.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (8.0.1) lib/active_support/callbacks.rb:179:in `call'
+activesupport (8.0.1) lib/active_support/callbacks.rb:558:in `block in invoke_before'
+activesupport (8.0.1) lib/active_support/callbacks.rb:558:in `each'
+activesupport (8.0.1) lib/active_support/callbacks.rb:558:in `invoke_before'
+activesupport (8.0.1) lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+turbo-rails (2.0.11) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.11) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `block in run_callbacks'
+actiontext (8.0.1) lib/action_text/rendering.rb:25:in `with_renderer'
+actiontext (8.0.1) lib/action_text/engine.rb:71:in `block (4 levels) in <class:Engine>'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `instance_exec'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `block in run_callbacks'
+activesupport (8.0.1) lib/active_support/callbacks.rb:140:in `run_callbacks'
+actionpack (8.0.1) lib/abstract_controller/callbacks.rb:260:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/rescue.rb:27:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/instrumentation.rb:76:in `block in process_action'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (8.0.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `instrument'
+actionpack (8.0.1) lib/action_controller/metal/instrumentation.rb:75:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (8.0.1) lib/active_record/railties/controller_runtime.rb:39:in `process_action'
+actionpack (8.0.1) lib/abstract_controller/base.rb:163:in `process'
+actionview (8.0.1) lib/action_view/rendering.rb:40:in `process'
+actionpack (8.0.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (8.0.1) lib/action_controller/metal.rb:335:in `dispatch'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:67:in `dispatch'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.1) lib/rails/engine/lazy_route_set.rb:68:in `call'
+rack (3.1.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.1.8) lib/rack/etag.rb:29:in `call'
+rack (3.1.8) lib/rack/conditional_get.rb:31:in `call'
+rack (3.1.8) lib/rack/head.rb:15:in `call'
+actionpack (8.0.1) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (8.0.1) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.1.0) lib/rack/session/abstract/id.rb:274:in `context'
+rack-session (2.1.0) lib/rack/session/abstract/id.rb:268:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/cookies.rb:706:in `call'
+activerecord (8.0.1) lib/active_record/migration.rb:671:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.1) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.1.8) lib/rack/method_override.rb:28:in `call'
+rack (3.1.8) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.1.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.0.1) lib/rails/engine.rb:535:in `call'
+puma (6.5.0) lib/puma/configuration.rb:279:in `call'
+puma (6.5.0) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.5.0) lib/puma/thread_pool.rb:389:in `with_force_shutdown'
+puma (6.5.0) lib/puma/request.rb:98:in `handle_request'
+puma (6.5.0) lib/puma/server.rb:468:in `process_client'
+puma (6.5.0) lib/puma/server.rb:249:in `block in run'
+puma (6.5.0) lib/puma/thread_pool.rb:166:in `block in spawn_thread'
+
+Information for cause: LoadError (cannot load such file -- image_processing):
+  
+/home/braga/.rvm/rubies/ruby-3.3.3/lib/ruby/3.3.0/bundled_gems.rb:74:in `require'
+/home/braga/.rvm/rubies/ruby-3.3.3/lib/ruby/3.3.0/bundled_gems.rb:74:in `block (2 levels) in replace_require'
+bootsnap (1.18.4) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:17:in `require'
+zeitwerk (2.7.1) lib/zeitwerk/core_ext/kernel.rb:34:in `require'
+activestorage (8.0.1) lib/active_storage/transformers/image_processing_transformer.rb:4:in `<main>'
+/home/braga/.rvm/rubies/ruby-3.3.3/lib/ruby/3.3.0/bundled_gems.rb:74:in `require'
+/home/braga/.rvm/rubies/ruby-3.3.3/lib/ruby/3.3.0/bundled_gems.rb:74:in `block (2 levels) in replace_require'
+bootsnap (1.18.4) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:30:in `require'
+zeitwerk (2.7.1) lib/zeitwerk/core_ext/kernel.rb:34:in `require'
+activestorage (8.0.1) app/models/active_storage/variation.rb:85:in `transformer'
+activestorage (8.0.1) app/models/active_storage/variation.rb:58:in `block in transform'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (8.0.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `instrument'
+activestorage (8.0.1) app/models/active_storage/variation.rb:57:in `transform'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:49:in `block in transform_blob'
+activestorage (8.0.1) lib/active_storage/downloader.rb:15:in `block in open'
+activestorage (8.0.1) lib/active_storage/downloader.rb:24:in `open_tempfile'
+activestorage (8.0.1) lib/active_storage/downloader.rb:12:in `open'
+activestorage (8.0.1) lib/active_storage/service.rb:92:in `open'
+activestorage (8.0.1) app/models/active_storage/blob.rb:305:in `open'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:48:in `transform_blob'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:44:in `process'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:19:in `processed'
+activestorage (8.0.1) app/controllers/active_storage/representations/base_controller.rb:14:in `set_representation'
+activesupport (8.0.1) lib/active_support/callbacks.rb:361:in `block in make_lambda'
+activesupport (8.0.1) lib/active_support/callbacks.rb:178:in `block in call'
+actionpack (8.0.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (8.0.1) lib/active_support/callbacks.rb:179:in `call'
+activesupport (8.0.1) lib/active_support/callbacks.rb:558:in `block in invoke_before'
+activesupport (8.0.1) lib/active_support/callbacks.rb:558:in `each'
+activesupport (8.0.1) lib/active_support/callbacks.rb:558:in `invoke_before'
+activesupport (8.0.1) lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+turbo-rails (2.0.11) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.11) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `block in run_callbacks'
+actiontext (8.0.1) lib/action_text/rendering.rb:25:in `with_renderer'
+actiontext (8.0.1) lib/action_text/engine.rb:71:in `block (4 levels) in <class:Engine>'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `instance_exec'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `block in run_callbacks'
+activesupport (8.0.1) lib/active_support/callbacks.rb:140:in `run_callbacks'
+actionpack (8.0.1) lib/abstract_controller/callbacks.rb:260:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/rescue.rb:27:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/instrumentation.rb:76:in `block in process_action'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (8.0.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `instrument'
+actionpack (8.0.1) lib/action_controller/metal/instrumentation.rb:75:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (8.0.1) lib/active_record/railties/controller_runtime.rb:39:in `process_action'
+actionpack (8.0.1) lib/abstract_controller/base.rb:163:in `process'
+actionview (8.0.1) lib/action_view/rendering.rb:40:in `process'
+actionpack (8.0.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (8.0.1) lib/action_controller/metal.rb:335:in `dispatch'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:67:in `dispatch'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.1) lib/rails/engine/lazy_route_set.rb:68:in `call'
+rack (3.1.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.1.8) lib/rack/etag.rb:29:in `call'
+rack (3.1.8) lib/rack/conditional_get.rb:31:in `call'
+rack (3.1.8) lib/rack/head.rb:15:in `call'
+actionpack (8.0.1) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (8.0.1) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.1.0) lib/rack/session/abstract/id.rb:274:in `context'
+rack-session (2.1.0) lib/rack/session/abstract/id.rb:268:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/cookies.rb:706:in `call'
+activerecord (8.0.1) lib/active_record/migration.rb:671:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.1) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.1.8) lib/rack/method_override.rb:28:in `call'
+rack (3.1.8) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.1.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.0.1) lib/rails/engine.rb:535:in `call'
+puma (6.5.0) lib/puma/configuration.rb:279:in `call'
+puma (6.5.0) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.5.0) lib/puma/thread_pool.rb:389:in `with_force_shutdown'
+puma (6.5.0) lib/puma/request.rb:98:in `handle_request'
+puma (6.5.0) lib/puma/server.rb:468:in `process_client'
+puma (6.5.0) lib/puma/server.rb:249:in `block in run'
+puma (6.5.0) lib/puma/thread_pool.rb:166:in `block in spawn_thread'
+Started GET "/fathers" for 127.0.0.1 at 2025-01-21 22:02:31 -0400
+Processing by FathersController#index as HTML
+  [1m[36mFather Load (0.1ms)[0m  [1m[34mSELECT "fathers".* FROM "fathers" ORDER BY "fathers"."id" ASC LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/controllers/fathers_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering fathers/index.html.erb within layouts/application
+  [1m[36mFather Load (0.1ms)[0m  [1m[34mSELECT "fathers".* FROM "fathers" /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/index.html.erb:8
+  [1m[36mOccupation Load (0.2ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 2 LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 1 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  [1m[36mChild Load (0.1ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."father_id" = 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:28
+  Rendered fathers/_father.html.erb (Duration: 16.9ms | GC: 0.1ms)
+  [1m[36mOccupation Load (0.1ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 1 LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  Rendered fathers/_father.html.erb (Duration: 2.2ms | GC: 0.0ms)
+  [1m[36mOccupation Load (0.2ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 3 LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  Rendered fathers/_father.html.erb (Duration: 4.4ms | GC: 0.0ms)
+  [1m[36mCACHE Occupation Load (0.0ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 3 LIMIT 1[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 4 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  Rendered fathers/_father.html.erb (Duration: 1.8ms | GC: 0.0ms)
+  [1m[36mCACHE Occupation Load (0.0ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 2 LIMIT 1[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 5 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  Rendered fathers/_father.html.erb (Duration: 1.9ms | GC: 0.0ms)
+  [1m[36mCACHE Occupation Load (0.0ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 2 LIMIT 1[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 6 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:21
+  Rendered fathers/_father.html.erb (Duration: 12.6ms | GC: 0.0ms)
+  Rendered fathers/index.html.erb within layouts/application (Duration: 43.5ms | GC: 0.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 44.3ms | GC: 0.1ms)
+Completed 200 OK in 65ms (Views: 42.8ms | ActiveRecord: 3.4ms (16 queries, 3 cached) | GC: 0.2ms)
+
+
+Started GET "/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--e3577b88028241aeb3bf9f8beec18fb73a642ac4/eyJfcmFpbHMiOnsiZGF0YSI6eyJmb3JtYXQiOiJqcGciLCJyZXNpemVfdG9fbGltaXQiOlszMDAsMzAwXX0sInB1ciI6InZhcmlhdGlvbiJ9fQ==--3e52e1c39f95bfd904c287d79bc2e6247f1512cb/01_2406211552506937_20240621155300-650x650.jpg" for 127.0.0.1 at 2025-01-21 22:02:31 -0400
+Processing by ActiveStorage::Representations::RedirectController#show as JPEG
+  Parameters: {"signed_blob_id"=>"eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--e3577b88028241aeb3bf9f8beec18fb73a642ac4", "variation_key"=>"[FILTERED]", "filename"=>"01_2406211552506937_20240621155300-650x650"}
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='show',application='Aula25',controller='redirect'*/[0m
+  [1m[36mActiveStorage::VariantRecord Load (0.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = 1 AND "active_storage_variant_records"."variation_digest" = 'LtoSAYL4ZrQTjS8XJDwiSZvW12s=' LIMIT 1 /*action='show',application='Aula25',controller='redirect'*/[0m
+[36m  Disk Storage (0.1ms) [0m[34mDownloaded file from key: t2amyikk57zqubynvhsob8ryvvpu[0m
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 1.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+LoadError (Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile.)
+Caused by: LoadError (cannot load such file -- image_processing)
+
+Information for: LoadError (Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile.):
+  
+activestorage (8.0.1) lib/active_storage/transformers/image_processing_transformer.rb:6:in `rescue in <main>'
+activestorage (8.0.1) lib/active_storage/transformers/image_processing_transformer.rb:3:in `<main>'
+/home/braga/.rvm/rubies/ruby-3.3.3/lib/ruby/3.3.0/bundled_gems.rb:74:in `require'
+/home/braga/.rvm/rubies/ruby-3.3.3/lib/ruby/3.3.0/bundled_gems.rb:74:in `block (2 levels) in replace_require'
+bootsnap (1.18.4) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:30:in `require'
+zeitwerk (2.7.1) lib/zeitwerk/core_ext/kernel.rb:34:in `require'
+activestorage (8.0.1) app/models/active_storage/variation.rb:85:in `transformer'
+activestorage (8.0.1) app/models/active_storage/variation.rb:58:in `block in transform'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (8.0.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `instrument'
+activestorage (8.0.1) app/models/active_storage/variation.rb:57:in `transform'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:49:in `block in transform_blob'
+activestorage (8.0.1) lib/active_storage/downloader.rb:15:in `block in open'
+activestorage (8.0.1) lib/active_storage/downloader.rb:24:in `open_tempfile'
+activestorage (8.0.1) lib/active_storage/downloader.rb:12:in `open'
+activestorage (8.0.1) lib/active_storage/service.rb:92:in `open'
+activestorage (8.0.1) app/models/active_storage/blob.rb:305:in `open'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:48:in `transform_blob'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:44:in `process'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:19:in `processed'
+activestorage (8.0.1) app/controllers/active_storage/representations/base_controller.rb:14:in `set_representation'
+activesupport (8.0.1) lib/active_support/callbacks.rb:361:in `block in make_lambda'
+activesupport (8.0.1) lib/active_support/callbacks.rb:178:in `block in call'
+actionpack (8.0.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (8.0.1) lib/active_support/callbacks.rb:179:in `call'
+activesupport (8.0.1) lib/active_support/callbacks.rb:558:in `block in invoke_before'
+activesupport (8.0.1) lib/active_support/callbacks.rb:558:in `each'
+activesupport (8.0.1) lib/active_support/callbacks.rb:558:in `invoke_before'
+activesupport (8.0.1) lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+turbo-rails (2.0.11) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.11) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `block in run_callbacks'
+actiontext (8.0.1) lib/action_text/rendering.rb:25:in `with_renderer'
+actiontext (8.0.1) lib/action_text/engine.rb:71:in `block (4 levels) in <class:Engine>'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `instance_exec'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `block in run_callbacks'
+activesupport (8.0.1) lib/active_support/callbacks.rb:140:in `run_callbacks'
+actionpack (8.0.1) lib/abstract_controller/callbacks.rb:260:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/rescue.rb:27:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/instrumentation.rb:76:in `block in process_action'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (8.0.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `instrument'
+actionpack (8.0.1) lib/action_controller/metal/instrumentation.rb:75:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (8.0.1) lib/active_record/railties/controller_runtime.rb:39:in `process_action'
+actionpack (8.0.1) lib/abstract_controller/base.rb:163:in `process'
+actionview (8.0.1) lib/action_view/rendering.rb:40:in `process'
+actionpack (8.0.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (8.0.1) lib/action_controller/metal.rb:335:in `dispatch'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:67:in `dispatch'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.1) lib/rails/engine/lazy_route_set.rb:68:in `call'
+rack (3.1.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.1.8) lib/rack/etag.rb:29:in `call'
+rack (3.1.8) lib/rack/conditional_get.rb:31:in `call'
+rack (3.1.8) lib/rack/head.rb:15:in `call'
+actionpack (8.0.1) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (8.0.1) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.1.0) lib/rack/session/abstract/id.rb:274:in `context'
+rack-session (2.1.0) lib/rack/session/abstract/id.rb:268:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/cookies.rb:706:in `call'
+activerecord (8.0.1) lib/active_record/migration.rb:671:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.1) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.1.8) lib/rack/method_override.rb:28:in `call'
+rack (3.1.8) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.1.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.0.1) lib/rails/engine.rb:535:in `call'
+puma (6.5.0) lib/puma/configuration.rb:279:in `call'
+puma (6.5.0) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.5.0) lib/puma/thread_pool.rb:389:in `with_force_shutdown'
+puma (6.5.0) lib/puma/request.rb:98:in `handle_request'
+puma (6.5.0) lib/puma/server.rb:468:in `process_client'
+puma (6.5.0) lib/puma/server.rb:249:in `block in run'
+puma (6.5.0) lib/puma/thread_pool.rb:166:in `block in spawn_thread'
+
+Information for cause: LoadError (cannot load such file -- image_processing):
+  
+/home/braga/.rvm/rubies/ruby-3.3.3/lib/ruby/3.3.0/bundled_gems.rb:74:in `require'
+/home/braga/.rvm/rubies/ruby-3.3.3/lib/ruby/3.3.0/bundled_gems.rb:74:in `block (2 levels) in replace_require'
+bootsnap (1.18.4) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:17:in `require'
+zeitwerk (2.7.1) lib/zeitwerk/core_ext/kernel.rb:34:in `require'
+activestorage (8.0.1) lib/active_storage/transformers/image_processing_transformer.rb:4:in `<main>'
+/home/braga/.rvm/rubies/ruby-3.3.3/lib/ruby/3.3.0/bundled_gems.rb:74:in `require'
+/home/braga/.rvm/rubies/ruby-3.3.3/lib/ruby/3.3.0/bundled_gems.rb:74:in `block (2 levels) in replace_require'
+bootsnap (1.18.4) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:30:in `require'
+zeitwerk (2.7.1) lib/zeitwerk/core_ext/kernel.rb:34:in `require'
+activestorage (8.0.1) app/models/active_storage/variation.rb:85:in `transformer'
+activestorage (8.0.1) app/models/active_storage/variation.rb:58:in `block in transform'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (8.0.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `instrument'
+activestorage (8.0.1) app/models/active_storage/variation.rb:57:in `transform'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:49:in `block in transform_blob'
+activestorage (8.0.1) lib/active_storage/downloader.rb:15:in `block in open'
+activestorage (8.0.1) lib/active_storage/downloader.rb:24:in `open_tempfile'
+activestorage (8.0.1) lib/active_storage/downloader.rb:12:in `open'
+activestorage (8.0.1) lib/active_storage/service.rb:92:in `open'
+activestorage (8.0.1) app/models/active_storage/blob.rb:305:in `open'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:48:in `transform_blob'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:44:in `process'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:19:in `processed'
+activestorage (8.0.1) app/controllers/active_storage/representations/base_controller.rb:14:in `set_representation'
+activesupport (8.0.1) lib/active_support/callbacks.rb:361:in `block in make_lambda'
+activesupport (8.0.1) lib/active_support/callbacks.rb:178:in `block in call'
+actionpack (8.0.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (8.0.1) lib/active_support/callbacks.rb:179:in `call'
+activesupport (8.0.1) lib/active_support/callbacks.rb:558:in `block in invoke_before'
+activesupport (8.0.1) lib/active_support/callbacks.rb:558:in `each'
+activesupport (8.0.1) lib/active_support/callbacks.rb:558:in `invoke_before'
+activesupport (8.0.1) lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+turbo-rails (2.0.11) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.11) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `block in run_callbacks'
+actiontext (8.0.1) lib/action_text/rendering.rb:25:in `with_renderer'
+actiontext (8.0.1) lib/action_text/engine.rb:71:in `block (4 levels) in <class:Engine>'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `instance_exec'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `block in run_callbacks'
+activesupport (8.0.1) lib/active_support/callbacks.rb:140:in `run_callbacks'
+actionpack (8.0.1) lib/abstract_controller/callbacks.rb:260:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/rescue.rb:27:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/instrumentation.rb:76:in `block in process_action'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (8.0.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `instrument'
+actionpack (8.0.1) lib/action_controller/metal/instrumentation.rb:75:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (8.0.1) lib/active_record/railties/controller_runtime.rb:39:in `process_action'
+actionpack (8.0.1) lib/abstract_controller/base.rb:163:in `process'
+actionview (8.0.1) lib/action_view/rendering.rb:40:in `process'
+actionpack (8.0.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (8.0.1) lib/action_controller/metal.rb:335:in `dispatch'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:67:in `dispatch'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.1) lib/rails/engine/lazy_route_set.rb:68:in `call'
+rack (3.1.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.1.8) lib/rack/etag.rb:29:in `call'
+rack (3.1.8) lib/rack/conditional_get.rb:31:in `call'
+rack (3.1.8) lib/rack/head.rb:15:in `call'
+actionpack (8.0.1) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (8.0.1) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.1.0) lib/rack/session/abstract/id.rb:274:in `context'
+rack-session (2.1.0) lib/rack/session/abstract/id.rb:268:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/cookies.rb:706:in `call'
+activerecord (8.0.1) lib/active_record/migration.rb:671:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.1) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.1.8) lib/rack/method_override.rb:28:in `call'
+rack (3.1.8) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.1.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.0.1) lib/rails/engine.rb:535:in `call'
+puma (6.5.0) lib/puma/configuration.rb:279:in `call'
+puma (6.5.0) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.5.0) lib/puma/thread_pool.rb:389:in `with_force_shutdown'
+puma (6.5.0) lib/puma/request.rb:98:in `handle_request'
+puma (6.5.0) lib/puma/server.rb:468:in `process_client'
+puma (6.5.0) lib/puma/server.rb:249:in `block in run'
+puma (6.5.0) lib/puma/thread_pool.rb:166:in `block in spawn_thread'
+Started GET "/fathers" for 127.0.0.1 at 2025-01-21 22:03:37 -0400
+Processing by FathersController#index as HTML
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.7ms)
+
+
+  
+SyntaxError (/home/braga/ror-studies/aula25/app/models/father.rb:18: syntax error, unexpected local variable or method, expecting `end' or dummy end
+...variant :medium resize_to_limit: [300, 300]
+...                ^~~~~~~~~~~~~~~
+/home/braga/ror-studies/aula25/app/models/father.rb:20: syntax error, unexpected `end'):
+  
+app/models/father.rb:18: syntax error, unexpected local variable or method, expecting `end' or dummy end
+app/models/father.rb:20: syntax error, unexpected `end'
+app/controllers/fathers_controller.rb:8:in `index'
+Started GET "/fathers" for 127.0.0.1 at 2025-01-21 22:04:14 -0400
+Processing by FathersController#index as HTML
+  [1m[36mFather Load (0.1ms)[0m  [1m[34mSELECT "fathers".* FROM "fathers" ORDER BY "fathers"."id" ASC LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/controllers/fathers_controller.rb:9:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering fathers/index.html.erb within layouts/application
+  [1m[36mFather Load (0.2ms)[0m  [1m[34mSELECT "fathers".* FROM "fathers" /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/index.html.erb:8
+  [1m[36mOccupation Load (0.1ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 2 LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 1 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  [1m[36mChild Load (0.1ms)[0m  [1m[34mSELECT "children".* FROM "children" WHERE "children"."father_id" = 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:28
+  Rendered fathers/_father.html.erb (Duration: 13.4ms | GC: 0.0ms)
+  [1m[36mOccupation Load (0.2ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 1 LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  Rendered fathers/_father.html.erb (Duration: 3.3ms | GC: 0.0ms)
+  [1m[36mOccupation Load (0.1ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 3 LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  Rendered fathers/_father.html.erb (Duration: 2.7ms | GC: 0.0ms)
+  [1m[36mCACHE Occupation Load (0.0ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 3 LIMIT 1[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 4 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  Rendered fathers/_father.html.erb (Duration: 1.8ms | GC: 0.0ms)
+  [1m[36mCACHE Occupation Load (0.0ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 2 LIMIT 1[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 5 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  Rendered fathers/_father.html.erb (Duration: 1.7ms | GC: 0.0ms)
+  [1m[36mCACHE Occupation Load (0.0ms)[0m  [1m[34mSELECT "occupations".* FROM "occupations" WHERE "occupations"."id" = 2 LIMIT 1[0m
+  ↳ app/models/father.rb:10:in `occupation_description'
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 6 AND "active_storage_attachments"."record_type" = 'Father' AND "active_storage_attachments"."name" = 'avatar' LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:20
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='index',application='Aula25',controller='fathers'*/[0m
+  ↳ app/views/fathers/_father.html.erb:21
+  Rendered fathers/_father.html.erb (Duration: 10.8ms | GC: 0.0ms)
+  Rendered fathers/index.html.erb within layouts/application (Duration: 37.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 38.7ms | GC: 0.0ms)
+Completed 200 OK in 55ms (Views: 37.5ms | ActiveRecord: 3.1ms (16 queries, 3 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--e3577b88028241aeb3bf9f8beec18fb73a642ac4/eyJfcmFpbHMiOnsiZGF0YSI6eyJmb3JtYXQiOiJqcGciLCJyZXNpemVfdG9fbGltaXQiOlszMDAsMzAwXX0sInB1ciI6InZhcmlhdGlvbiJ9fQ==--3e52e1c39f95bfd904c287d79bc2e6247f1512cb/01_2406211552506937_20240621155300-650x650.jpg" for 127.0.0.1 at 2025-01-21 22:04:14 -0400
+Processing by ActiveStorage::Representations::RedirectController#show as JPEG
+  Parameters: {"signed_blob_id"=>"eyJfcmFpbHMiOnsiZGF0YSI6MSwicHVyIjoiYmxvYl9pZCJ9fQ==--e3577b88028241aeb3bf9f8beec18fb73a642ac4", "variation_key"=>"[FILTERED]", "filename"=>"01_2406211552506937_20240621155300-650x650"}
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*action='show',application='Aula25',controller='redirect'*/[0m
+  [1m[36mActiveStorage::VariantRecord Load (0.3ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = 1 AND "active_storage_variant_records"."variation_digest" = 'LtoSAYL4ZrQTjS8XJDwiSZvW12s=' LIMIT 1 /*action='show',application='Aula25',controller='redirect'*/[0m
+[36m  Disk Storage (0.3ms) [0m[34mDownloaded file from key: t2amyikk57zqubynvhsob8ryvvpu[0m
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.8ms (2 queries, 0 cached) | GC: 5.5ms)
+
+
+  
+LoadError (Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile.)
+Caused by: LoadError (cannot load such file -- image_processing)
+
+Information for: LoadError (Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile.):
+  
+activestorage (8.0.1) lib/active_storage/transformers/image_processing_transformer.rb:6:in `rescue in <main>'
+activestorage (8.0.1) lib/active_storage/transformers/image_processing_transformer.rb:3:in `<main>'
+/home/braga/.rvm/rubies/ruby-3.3.3/lib/ruby/3.3.0/bundled_gems.rb:74:in `require'
+/home/braga/.rvm/rubies/ruby-3.3.3/lib/ruby/3.3.0/bundled_gems.rb:74:in `block (2 levels) in replace_require'
+bootsnap (1.18.4) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:30:in `require'
+zeitwerk (2.7.1) lib/zeitwerk/core_ext/kernel.rb:34:in `require'
+activestorage (8.0.1) app/models/active_storage/variation.rb:85:in `transformer'
+activestorage (8.0.1) app/models/active_storage/variation.rb:58:in `block in transform'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (8.0.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `instrument'
+activestorage (8.0.1) app/models/active_storage/variation.rb:57:in `transform'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:49:in `block in transform_blob'
+activestorage (8.0.1) lib/active_storage/downloader.rb:15:in `block in open'
+activestorage (8.0.1) lib/active_storage/downloader.rb:24:in `open_tempfile'
+activestorage (8.0.1) lib/active_storage/downloader.rb:12:in `open'
+activestorage (8.0.1) lib/active_storage/service.rb:92:in `open'
+activestorage (8.0.1) app/models/active_storage/blob.rb:305:in `open'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:48:in `transform_blob'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:44:in `process'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:19:in `processed'
+activestorage (8.0.1) app/controllers/active_storage/representations/base_controller.rb:14:in `set_representation'
+activesupport (8.0.1) lib/active_support/callbacks.rb:361:in `block in make_lambda'
+activesupport (8.0.1) lib/active_support/callbacks.rb:178:in `block in call'
+actionpack (8.0.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (8.0.1) lib/active_support/callbacks.rb:179:in `call'
+activesupport (8.0.1) lib/active_support/callbacks.rb:558:in `block in invoke_before'
+activesupport (8.0.1) lib/active_support/callbacks.rb:558:in `each'
+activesupport (8.0.1) lib/active_support/callbacks.rb:558:in `invoke_before'
+activesupport (8.0.1) lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+turbo-rails (2.0.11) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.11) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `block in run_callbacks'
+actiontext (8.0.1) lib/action_text/rendering.rb:25:in `with_renderer'
+actiontext (8.0.1) lib/action_text/engine.rb:71:in `block (4 levels) in <class:Engine>'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `instance_exec'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `block in run_callbacks'
+activesupport (8.0.1) lib/active_support/callbacks.rb:140:in `run_callbacks'
+actionpack (8.0.1) lib/abstract_controller/callbacks.rb:260:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/rescue.rb:27:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/instrumentation.rb:76:in `block in process_action'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (8.0.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `instrument'
+actionpack (8.0.1) lib/action_controller/metal/instrumentation.rb:75:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (8.0.1) lib/active_record/railties/controller_runtime.rb:39:in `process_action'
+actionpack (8.0.1) lib/abstract_controller/base.rb:163:in `process'
+actionview (8.0.1) lib/action_view/rendering.rb:40:in `process'
+actionpack (8.0.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (8.0.1) lib/action_controller/metal.rb:335:in `dispatch'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:67:in `dispatch'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.1) lib/rails/engine/lazy_route_set.rb:68:in `call'
+rack (3.1.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.1.8) lib/rack/etag.rb:29:in `call'
+rack (3.1.8) lib/rack/conditional_get.rb:31:in `call'
+rack (3.1.8) lib/rack/head.rb:15:in `call'
+actionpack (8.0.1) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (8.0.1) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.1.0) lib/rack/session/abstract/id.rb:274:in `context'
+rack-session (2.1.0) lib/rack/session/abstract/id.rb:268:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/cookies.rb:706:in `call'
+activerecord (8.0.1) lib/active_record/migration.rb:671:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.1) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.1.8) lib/rack/method_override.rb:28:in `call'
+rack (3.1.8) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.1.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.0.1) lib/rails/engine.rb:535:in `call'
+puma (6.5.0) lib/puma/configuration.rb:279:in `call'
+puma (6.5.0) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.5.0) lib/puma/thread_pool.rb:389:in `with_force_shutdown'
+puma (6.5.0) lib/puma/request.rb:98:in `handle_request'
+puma (6.5.0) lib/puma/server.rb:468:in `process_client'
+puma (6.5.0) lib/puma/server.rb:249:in `block in run'
+puma (6.5.0) lib/puma/thread_pool.rb:166:in `block in spawn_thread'
+
+Information for cause: LoadError (cannot load such file -- image_processing):
+  
+/home/braga/.rvm/rubies/ruby-3.3.3/lib/ruby/3.3.0/bundled_gems.rb:74:in `require'
+/home/braga/.rvm/rubies/ruby-3.3.3/lib/ruby/3.3.0/bundled_gems.rb:74:in `block (2 levels) in replace_require'
+bootsnap (1.18.4) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:17:in `require'
+zeitwerk (2.7.1) lib/zeitwerk/core_ext/kernel.rb:34:in `require'
+activestorage (8.0.1) lib/active_storage/transformers/image_processing_transformer.rb:4:in `<main>'
+/home/braga/.rvm/rubies/ruby-3.3.3/lib/ruby/3.3.0/bundled_gems.rb:74:in `require'
+/home/braga/.rvm/rubies/ruby-3.3.3/lib/ruby/3.3.0/bundled_gems.rb:74:in `block (2 levels) in replace_require'
+bootsnap (1.18.4) lib/bootsnap/load_path_cache/core_ext/kernel_require.rb:30:in `require'
+zeitwerk (2.7.1) lib/zeitwerk/core_ext/kernel.rb:34:in `require'
+activestorage (8.0.1) app/models/active_storage/variation.rb:85:in `transformer'
+activestorage (8.0.1) app/models/active_storage/variation.rb:58:in `block in transform'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (8.0.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `instrument'
+activestorage (8.0.1) app/models/active_storage/variation.rb:57:in `transform'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:49:in `block in transform_blob'
+activestorage (8.0.1) lib/active_storage/downloader.rb:15:in `block in open'
+activestorage (8.0.1) lib/active_storage/downloader.rb:24:in `open_tempfile'
+activestorage (8.0.1) lib/active_storage/downloader.rb:12:in `open'
+activestorage (8.0.1) lib/active_storage/service.rb:92:in `open'
+activestorage (8.0.1) app/models/active_storage/blob.rb:305:in `open'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:48:in `transform_blob'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:44:in `process'
+activestorage (8.0.1) app/models/active_storage/variant_with_record.rb:19:in `processed'
+activestorage (8.0.1) app/controllers/active_storage/representations/base_controller.rb:14:in `set_representation'
+activesupport (8.0.1) lib/active_support/callbacks.rb:361:in `block in make_lambda'
+activesupport (8.0.1) lib/active_support/callbacks.rb:178:in `block in call'
+actionpack (8.0.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (8.0.1) lib/active_support/callbacks.rb:179:in `call'
+activesupport (8.0.1) lib/active_support/callbacks.rb:558:in `block in invoke_before'
+activesupport (8.0.1) lib/active_support/callbacks.rb:558:in `each'
+activesupport (8.0.1) lib/active_support/callbacks.rb:558:in `invoke_before'
+activesupport (8.0.1) lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+turbo-rails (2.0.11) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.11) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `block in run_callbacks'
+actiontext (8.0.1) lib/action_text/rendering.rb:25:in `with_renderer'
+actiontext (8.0.1) lib/action_text/engine.rb:71:in `block (4 levels) in <class:Engine>'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `instance_exec'
+activesupport (8.0.1) lib/active_support/callbacks.rb:129:in `block in run_callbacks'
+activesupport (8.0.1) lib/active_support/callbacks.rb:140:in `run_callbacks'
+actionpack (8.0.1) lib/abstract_controller/callbacks.rb:260:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/rescue.rb:27:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/instrumentation.rb:76:in `block in process_action'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `block in instrument'
+activesupport (8.0.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (8.0.1) lib/active_support/notifications.rb:210:in `instrument'
+actionpack (8.0.1) lib/action_controller/metal/instrumentation.rb:75:in `process_action'
+actionpack (8.0.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (8.0.1) lib/active_record/railties/controller_runtime.rb:39:in `process_action'
+actionpack (8.0.1) lib/abstract_controller/base.rb:163:in `process'
+actionview (8.0.1) lib/action_view/rendering.rb:40:in `process'
+actionpack (8.0.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (8.0.1) lib/action_controller/metal.rb:335:in `dispatch'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:67:in `dispatch'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:53:in `block in serve'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:133:in `block in find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in `each'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:126:in `find_routes'
+actionpack (8.0.1) lib/action_dispatch/journey/router.rb:34:in `serve'
+actionpack (8.0.1) lib/action_dispatch/routing/route_set.rb:908:in `call'
+railties (8.0.1) lib/rails/engine/lazy_route_set.rb:68:in `call'
+rack (3.1.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.1.8) lib/rack/etag.rb:29:in `call'
+rack (3.1.8) lib/rack/conditional_get.rb:31:in `call'
+rack (3.1.8) lib/rack/head.rb:15:in `call'
+actionpack (8.0.1) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (8.0.1) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+rack-session (2.1.0) lib/rack/session/abstract/id.rb:274:in `context'
+rack-session (2.1.0) lib/rack/session/abstract/id.rb:268:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/cookies.rb:706:in `call'
+activerecord (8.0.1) lib/active_record/migration.rb:671:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+activesupport (8.0.1) lib/active_support/callbacks.rb:100:in `run_callbacks'
+actionpack (8.0.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+railties (8.0.1) lib/rails/rack/logger.rb:41:in `call_app'
+railties (8.0.1) lib/rails/rack/logger.rb:29:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/remote_ip.rb:96:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+rack (3.1.8) lib/rack/method_override.rb:28:in `call'
+rack (3.1.8) lib/rack/runtime.rb:24:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (8.0.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/executor.rb:16:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+rack (3.1.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (8.0.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+railties (8.0.1) lib/rails/engine.rb:535:in `call'
+puma (6.5.0) lib/puma/configuration.rb:279:in `call'
+puma (6.5.0) lib/puma/request.rb:99:in `block in handle_request'
+puma (6.5.0) lib/puma/thread_pool.rb:389:in `with_force_shutdown'
+puma (6.5.0) lib/puma/request.rb:98:in `handle_request'
+puma (6.5.0) lib/puma/server.rb:468:in `process_client'
+puma (6.5.0) lib/puma/server.rb:249:in `block in run'
+puma (6.5.0) lib/puma/thread_pool.rb:166:in `block in spawn_thread'
